@@ -988,6 +988,32 @@ export const visTypes = {
     },
   },
 
+  pivot_table_plus: {
+    label: t('Pivot Table Plus'),
+    controlPanelSections: [
+      {
+        label: t('Query'),
+        expanded: true,
+        controlSetRows: [
+          ['groupby', 'columns'],
+          ['metrics'],
+          ['row_limit', null],
+        ],
+      },
+      {
+        label: t('Pivot Options'),
+        controlSetRows: [
+          ['pandas_aggfunc', 'pivot_margins'],
+          ['number_format', 'combine_metric'],
+        ],
+      },
+    ],
+    controlOverrides: {
+      groupby: { includeTime: true },
+      columns: { includeTime: true },
+    },
+  },
+
   separator: {
     label: t('Separator'),
     controlPanelSections: [

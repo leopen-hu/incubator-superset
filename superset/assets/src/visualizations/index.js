@@ -80,6 +80,7 @@ const vizMap = {
   [VIZ_TYPES.para]: require('./parallel_coordinates.js'),
   [VIZ_TYPES.pie]: nvd3Vis,
   [VIZ_TYPES.pivot_table]: require('./pivot_table.js'),
+  [VIZ_TYPES.pivot_table_plus]: require('./pivot_table_plus.js'),
   [VIZ_TYPES.sankey]: require('./sankey.js'),
   [VIZ_TYPES.separator]: require('./markup.js'),
   [VIZ_TYPES.sunburst]: require('./sunburst.js'),

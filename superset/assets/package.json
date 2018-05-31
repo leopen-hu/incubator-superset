@@ -15,6 +15,7 @@
     "dev-fast": "echo 'dev-fast in now replaced by dev'",
     "prod": "NODE_ENV=production node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js -p --colors --progress",
     "build": "NODE_ENV=production webpack --colors --progress",
+    "build-win": "set NODE_ENV=production && webpack --colors --progress",
     "lint": "eslint --ignore-path=.eslintignore --ext .js,.jsx .",
     "lint-fix": "eslint --fix --ignore-path=.eslintignore --ext .js,.jsx .",
     "sync-backend": "babel-node --presets env src/syncBackend.js"
