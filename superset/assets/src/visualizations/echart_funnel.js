@@ -1,13 +1,14 @@
 import echarts from 'echarts'
-import { getColorsFromScheme } from '../modules/colors';
+import { getColorFromScheme } from '../modules/colors';
 
 function echartsFunnelVis(slice, payload) {
   const div = d3.select(slice.selector);
-  const html = '<div id='+slice_id+' style="width: '+slice.width() +'' + 
+  const sliceId = "echarts_slice_"+slice.formData.slice_id;
+  const html = '<div id='+sliceId+' style="width: '+slice.width() +'' + 
   'px;height:'+slice.height()+'px;"></div>';
   div.html(html); // reset
 
-  let myChart = echarts.init(document.getElementById(slice_id));
+  let myChart = echarts.init(document.getElementById(sliceId));
   let option = {
     tooltip: {
         trigger: 'item',
@@ -82,7 +83,7 @@ function echartsFunnelVis(slice, payload) {
   const fd = slice.formData;
   const json = payload.data;
 
-  let colors = getColorsFromScheme(fd.color_scheme);
+  let colors = getColorFromScheme(fd.color_scheme);
   console.log(colors);
   let dataName = [];  // echarts需要的是两个数组
   let maxValue = 0;
@@ -94,16 +95,15 @@ function echartsFunnelVis(slice, payload) {
     }
   });
 
-  const option2 = {
-    legend: {data: data_name},
-    series: [{
-            color: colors,
-            max: max_value,
-            data: data
-        }]
-  };
-
-  myChart.setOption(option2)
+  // const option2 = {
+  //   legend: {data: dataName},
+  //   series: [{
+  //           color: colors,
+  //           max: maxValue
+  //       }]
+  // };
+  myChart.setOption(option)
+  // myChart.setOption(option2)
 };
 
 module.exports = echartsFunnelVis;

@@ -825,15 +825,14 @@ class EchartFunnelViz(BaseViz):
     #     return result
 
     def get_data(self, df):
-        df = df.pivot_table(
-            index=self.groupby,
-            values=[self.metrics[0]]
-        )
-        # chart_data = [{'name': metric, 'children': self._nest(metric, df)}
-        #               for metric in df.columns]
-        df.sort_values(by=self.metrics[0], ascending=False, inplace=True)
-        df = df.reset_index()
-        df.columns = ['name', 'value']
+        # df = df.pivot_table(
+        #    index=self.all_metrics[0],
+        #    values=[self.all_metrics[0]]
+        # )
+        # print('1111111111 %s' % df)
+        # df.sort_values(by=self.all_metrics[0], ascending=False, inplace=True)
+        # df = df.reset_index()
+        # df.columns = ['name', 'value']
         return df.to_dict(orient='records')
         # return chart_data
 
