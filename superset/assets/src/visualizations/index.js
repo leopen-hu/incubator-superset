@@ -28,6 +28,7 @@ export const VIZ_TYPES = {
   para: 'para',
   pie: 'pie',
   pivot_table: 'pivot_table',
+  pivot_table_plus: 'pivot_table_plus',  
   sankey: 'sankey',
   separator: 'separator',
   sunburst: 'sunburst',

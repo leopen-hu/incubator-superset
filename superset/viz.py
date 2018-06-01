@@ -679,7 +679,7 @@ class PivotTablePlusViz(BaseViz):
     is_timeseries = False
 
     def query_obj(self):
-        d = super(PivotTableViz, self).query_obj()
+        d = super(PivotTablePlusViz, self).query_obj()
         groupby = self.form_data.get('groupby')
         columns = self.form_data.get('columns')
         metrics = self.form_data.get('metrics')
