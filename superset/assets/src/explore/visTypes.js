@@ -106,7 +106,7 @@ const timeGrainSqlaAnimationOverrides = {
 };
 
 export const visTypes = {
-  echarts_funnel: {
+  echart_funnel: {
     label: t('Echart Funnel View'),
     showOnExplore: true,
     controlPanelSections: [
