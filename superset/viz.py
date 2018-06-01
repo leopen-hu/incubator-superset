@@ -669,6 +669,7 @@ class PivotTableViz(BaseViz):
                     'table-condensed table-hover').split(' ')),
         )
 
+
 class PivotTablePlusViz(BaseViz):
 
     """A pivot table view, define your rows, columns and metrics"""
@@ -803,6 +804,38 @@ class TreemapViz(BaseViz):
         chart_data = [{'name': metric, 'children': self._nest(metric, df)}
                       for metric in df.columns]
         return chart_data
+
+
+class EchartFunnelViz(BaseViz):
+
+    """Echart Funnel."""
+
+    viz_type = 'echart_funnel'
+    verbose_name = _('EchartFunnel')
+    is_timeseries = False
+
+    # def _nest(self, metric, df):
+    #     nlevels = df.index.nlevels
+    #     if nlevels == 1:
+    #         result = [{'name': n, 'value': v}
+    #                   for n, v in zip(df.index, df[metric])]
+    #     else:
+    #         result = [{'name': l, 'children': self._nest(metric, df.loc[l])}
+    #                   for l in df.index.levels[0]]
+    #     return result
+
+    def get_data(self, df):
+        df = df.pivot_table(
+            index=self.groupby,
+            values=[self.metrics[0]]
+        )
+        # chart_data = [{'name': metric, 'children': self._nest(metric, df)}
+        #               for metric in df.columns]
+        df.sort_values(by=self.metrics[0], ascending=False, inplace=True)
+        df = df.reset_index()
+        df.columns = ['name', 'value']
+        return df.to_dict(orient='records')
+        # return chart_data
 
 
 class CalHeatmapViz(BaseViz):

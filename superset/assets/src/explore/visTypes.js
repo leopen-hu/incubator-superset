@@ -106,6 +106,26 @@ const timeGrainSqlaAnimationOverrides = {
 };
 
 export const visTypes = {
+  echarts_funnel: {
+    label: t('Echart Funnel View'),
+    showOnExplore: true,
+    controlPanelSections: [
+      {
+        label: t('Query'),
+        expanded: true,
+        controlSetRows: [
+          ['metrics', 'groupby'],
+          ['limit'],
+        ],
+      },
+      {
+        label: t('Chart Options'),
+        controlSetRows: [
+          ['color_scheme'],
+        ],
+      },
+    ],
+  },
   dist_bar: {
     label: t('Distribution - Bar Chart'),
     showOnExplore: true,
