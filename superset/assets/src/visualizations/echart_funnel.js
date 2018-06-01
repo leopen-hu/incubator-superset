@@ -1,5 +1,5 @@
 import echarts from 'echarts'
-import { getColorsFromScheme } from '../javascripts/modules/colors';
+import { getColorsFromScheme } from '../modules/colors';
 
 function echartsFunnelVis(slice, payload) {
   const div = d3.select(slice.selector);
